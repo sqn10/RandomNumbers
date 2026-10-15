@@ -4,8 +4,33 @@
     {
         static void Main(string[] args)
         {
-            Task1();
-            Task3();
+            int choice;
+
+            Console.WriteLine("Please pick a program to run, out of these:");
+            Console.WriteLine("1. Random Number Generator");
+            Console.WriteLine("2. Dice Roller");
+            Console.WriteLine("3. Magic 8 ball");
+            Int32.TryParse(Console.ReadLine(), out choice);
+            if (choice == 1)
+            {
+                Console.Clear();
+                Task1();
+            }
+            else if (choice == 2)
+            {
+                Console.Clear();
+                Task3();
+            }
+            else if (choice == 3)
+            {
+                Console.Clear();
+                Task4();
+            }
+            else
+            {
+                Console.WriteLine("Not valid input. Try again. Press ENTER to exit.");
+                Console.ReadLine();
+            }
         }
         public static void Task1()
         {
@@ -40,15 +65,38 @@
 
         public static void Task3()
         {
-            // do better
             Random generator = new Random();
+            int diceResult = generator.Next(1, 7);
+            int diceResult2 = generator.Next(1, 7);
+            int diceSum = diceResult + diceResult2;
 
             Console.WriteLine();
             Console.WriteLine();
 
             Console.WriteLine("Dice roller. Computing...");
             Thread.Sleep(1000);
+            Console.WriteLine("Please wait...");
+            Thread.Sleep(1000);
+            Console.Write("Downloading more RAM");
+            Thread.Sleep(2000);
+            Console.Write(".");
+            Thread.Sleep(2000);
+            Console.Write(".");
+            Thread.Sleep(2000);
+            Console.WriteLine("."); Console.WriteLine();
+            Thread.Sleep(1000);
 
+            Console.WriteLine("Your dice are " + diceResult + " and " + diceResult2 + ".");
+
+            Console.WriteLine("The sum is: " + diceSum + ".");
+        }
+        public static void Task4()
+        {
+            string answer;
+
+            Console.WriteLine("MAGIC 8 BALL!");
+            Console.WriteLine("Ask a question, and I will come up with an answer...");
+            answer = Console.ReadLine();
         }
     }
 }
